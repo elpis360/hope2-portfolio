@@ -5,12 +5,15 @@ import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useRouter } from "next/router";
-import { Circles, Puff, ThreeDots } from "react-loading-icons";
+import { ThreeDots } from "react-loading-icons";
+import { Alert, CircularProgress } from "@mui/material";
+import { CheckIcon } from "@mantine/core";
 
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const router = useRouter();
   const { query } = useRouter();
   const nextRoute = query.next as string;
@@ -37,8 +40,11 @@ export default function LoginPage() {
       if (response.error) {
         setError(response.error);
       }
+
       if (res.status === 200) {
+        setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
+        console.log(nextRoute);
         router.replace(nextRoute || "/");
       }
     } catch (e) {
@@ -59,6 +65,7 @@ export default function LoginPage() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
+      {success && <Alert severity="success">Successful</Alert>}
       <div className="item-center flex justify-center items-center relative h-screen w-full">
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <Image
@@ -69,6 +76,7 @@ export default function LoginPage() {
             className="object-cover w-full h-full blur-sm"
           />
         </div>
+
         <div className="card p-10 z-10 text-pri_text max-w-[90%] ">
           <div className="flex justify-center mb-4">
             <Logo />
@@ -93,16 +101,7 @@ export default function LoginPage() {
                 className="bg-primary mt-5 text-p flex items-center gap-4 justify-center px-4 py-4 text-[#020202] p-text text-center rounded-[10px] font-medium"
               >
                 Log in
-                {isLoading && (
-                  <ThreeDots
-                    width={20}
-                    height={20}
-                    stroke="#1111"
-                    strokeOpacity={1.525}
-                    fill="#000"
-                    fillOpacity={1.5}
-                  />
-                )}
+                {isLoading && <CircularProgress />}
               </button>
               {error && <p className="p-text text-red-500">{error}</p>}
             </div>
