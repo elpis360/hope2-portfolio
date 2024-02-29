@@ -24,25 +24,25 @@ const AboutPage = () => {
             </div>
             <div className="flex flex-col gap-5 ">
               <p className="text-[#DFDFDF]">
-                Hi there! I’m Hope, an architect turned UX designer. Before
+                Hi there! I&apos;m Hope, an architect turned UX designer. Before
                 discovering UX, I worked for 2 years as an architect designing
                 landscapes, Interiors for private residences, commercial and
                 mixed use developments. My experience in the design field has
                 been an invaluable lesson in collaboration, communication,
-                creativity, and problem solving. Most important, I've learned
-                how to contribute as part of a greater whole to design things
-                that are used by real people everyday.
+                creativity, and problem solving. Most important, &apos;ve
+                learned how to contribute as part of a greater whole to design
+                things that are used by real people everyday.
               </p>
               <p className="text-[#DFDFDF]">
-                I'm driven by compassion for others and a desire to improve
-                people's lives through design. UX design allows me to blend
+                I&apos;m driven by compassion for others and a desire to improve
+                people&apos;s lives through design. UX design allows me to blend
                 empathy, psychology, and creativity to have a positive impact on
                 the world.
               </p>
               <p className="text-[#DFDFDF]">
-                When I'm not working, you can find me staying active in reading,
-                cooking, eating, traveling, and spending time with friends and
-                family.
+                When I&apos;m not working, you can find me staying active in
+                reading, cooking, eating, traveling, and spending time with
+                friends and family.
               </p>
               <p className="text-[#DFDFDF]">
                 I currently live in Lagos, Nigeria. Want to get in touch? Email
