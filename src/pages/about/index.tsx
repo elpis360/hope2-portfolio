@@ -8,9 +8,9 @@ const AboutPage = () => {
   return (
     <Layout title="About">
       <>
-        <section>
+        <section className="my-5 lg:my-10 screen-center">
           <Header>User Experience Designer</Header>
-          <p className="text-[#DFDFDF]">Based in Lagos</p>
+          <p className="text-[#DFDFDF] p-text font-medium">Based in Lagos</p>
 
           <div className="grid md:grid-cols-2 gap-20 justify-between mt-5">
             <div className="rounded-xl">
@@ -55,9 +55,9 @@ const AboutPage = () => {
           </div>
         </section>
         {/* tools i use  */}
-        <section className="mt-10">
+        <section className="my-5 lg:my-10 screen-center">
           <Header>Tools I frequently use</Header>
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-x-20 mt-5">
             {aboutTools.map((tool) => (
               <div
                 key={tool.header}
@@ -70,17 +70,20 @@ const AboutPage = () => {
                   height={35}
                   className="w-[35px] h-[35px] rounded-sm"
                 />
-                <div className="mt-5"></div>
-                <h4>{tool.header}</h4>
-                <p className="text-[#DFDFDF]">{tool.text}</p>
+                <div className="mt-5">
+                  <h4>{tool.header}</h4>
+                  <p className="text-[#DFDFDF]">{tool.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </section>
         {/* my design philosophy  */}
-        <section className="mt-10">
-          <Header>My design Philosophy</Header>
-          <div className="grid md:grid-cols-3 gap-10">
+        <section className="my-5 lg:my-10 screen-center">
+          <p className="h1-text font-medium capitalize mb-4">
+            My design Philosophy
+          </p>
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-x-20 mt-5">
             {aboutDesignPhilosophy.map((design) => (
               <div key={design.header} className="flex flex-col">
                 <Image
@@ -91,7 +94,7 @@ const AboutPage = () => {
                   className="w-[48px] h-[48px] rounded-sm"
                 />
                 <div className="flex-1 mt-5">
-                  <h4 className="mb-3">{design.header}</h4>
+                  <h4 className="mb-3 h4-text">{design.header}</h4>
                   <p className="text-[#DFDFDF]">{design.text}</p>
                 </div>
               </div>

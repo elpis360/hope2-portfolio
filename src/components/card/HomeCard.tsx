@@ -6,13 +6,17 @@ import { Paragraph } from "../Texts/Paragraph";
 const HomeCard = (props: HomeCardType) => {
   const { header, sub_heading, span } = props;
   return (
-    <div className="card">
+    <div className="card p-5 min-h-[200px] flex items-center justify-center flex-1">
       <div>
-        <Header>
+        <p className="h1-text capitalize font-medium text-center">
           {header}
-          <span className="text-base ml-1">{span}</span>
-        </Header>
-        {sub_heading && <p>{sub_heading}</p>}
+          <span className="text-base  p-text font-normal capitalize">
+            &nbsp;{span}
+          </span>
+        </p>
+        <p className="text-center p-text font-normal capitalize mt-2">
+          {sub_heading}
+        </p>
       </div>
     </div>
   );

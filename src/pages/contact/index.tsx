@@ -8,8 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 const Contact = () => {
   return (
     <Layout title="Contact">
-      <>
-        <p className="h1-text mb-5">Contact Me</p>
+      <section className="screen-center my-10">
+        <p className="h1-text mb-5 font-medium">Contact Me</p>
         <p className="text-p text-sec_text">
           Interested in collaborating on something? Making a request for my
           availability Give me a shout!
@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
           ))}
         </div>
-      </>
+      </section>
     </Layout>
   );
 };

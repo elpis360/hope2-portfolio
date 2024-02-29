@@ -8,10 +8,10 @@ export const HomeCardData: HomeCardType[] = [
   { header: "3", span: "years", sub_heading: "design experience" },
 ];
 export const TrustedByData = [
-  { url: "trusted_a.png", alt: "" },
-  { url: "trusted_b.png", alt: "" },
-  { url: "trusted_c.png", alt: "" },
-  { url: "trusted_d.png", alt: "" },
+  { url: "trusted_a.svg", alt: "" },
+  { url: "trusted_b.svg", alt: "" },
+  { url: "trusted_c.svg", alt: "" },
+  { url: "trusted_d.svg", alt: "" },
 ];
 
 export const aboutTools = [

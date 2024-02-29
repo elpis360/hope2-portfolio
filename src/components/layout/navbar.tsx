@@ -2,18 +2,16 @@ import React from "react";
 import Link from "next/link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { AlternateEmail, CloseSharp } from "@mui/icons-material";
-import { Home2, Menu } from "iconsax-react";
+import { AlternateEmail, Close, CloseSharp } from "@mui/icons-material";
+import { CloseCircle, CloseSquare, Home2, Menu } from "iconsax-react";
 import { PiProjectorScreen } from "react-icons/pi";
 import { Icon } from "@iconify/react";
 import { Logo } from "../logo";
 import { useRouter } from "next/router";
 import { Drawer } from "@mui/material";
-import { FcCancel } from "react-icons/fc";
-import { CloseButton } from "@mantine/core";
+
 import { MdOutlineMenu } from "react-icons/md";
 
 export function Navbar() {
@@ -42,14 +40,17 @@ export function Navbar() {
   ];
 
   const drawer = (
-    <div className="mx-auto grid gap-5 bg-black">
+    <div className="mx-auto grid gap-10 bg-black text-p">
       {navbar_list.map((item) => (
         <div key={item.name}>
           <Link href={item.link}>
             <ListItem
               disablePadding
               sx={{
-                color: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                color: {
+                  xs: "#ffff",
+                  lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                },
                 "&:hover": {
                   color: "primary",
                 },
@@ -57,14 +58,20 @@ export function Navbar() {
             >
               <ListItemIcon
                 sx={{
-                  color: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                  color: {
+                    xs: "#ffff",
+                    lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                  },
                 }}
               >
                 {item.icon}
               </ListItemIcon>
               <ListItemText
                 sx={{
-                  color: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                  color: {
+                    xs: "#ffff",
+                    lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
+                  },
                   textTransform: "capitalize",
                 }}
               >
@@ -77,8 +84,11 @@ export function Navbar() {
     </div>
   );
   return (
-    <nav aria-label="mobile navigation" className="bg-black">
-      <div className=" bg-black   w-full lg:hidden  sticky top-0 right-0">
+    <nav
+      aria-label="mobile navigation "
+      className="bg-black relative mb-[3.5rem]"
+    >
+      <div className=" bg-black   w-full lg:hidden  fixed h-[3.5rem]   top-0 left-0">
         <div className="justify-between flex items-center screen-center">
           <div>
             <Logo width="30" />
@@ -99,7 +109,7 @@ export function Navbar() {
       >
         <div className="bg-black border border-border">
           <div className="screen-center mb-10">
-            <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between my-10">
               <div>
                 <Logo width="30" />
               </div>
@@ -108,19 +118,19 @@ export function Navbar() {
                 aria-label="open drawer"
                 onClick={() => setToggleModal(!toggleModal)}
               >
-                <CloseButton color="white" />
+                <CloseCircle color="white" />
               </button>
             </div>
             {drawer}
           </div>
         </div>
       </Drawer>
-      <div className="hidden lg:block">
-        <div className="bg-black">
-          <div className="items-center flex justify-center my-10 screen-center">
+      <div className="hidden lg:block fixed h-full  w-[15%] ">
+        <div className="bg-black w-full">
+          <div className="items-center flex justify-center my-10 mb-20 screen-center mx-auto">
             <Logo />
           </div>
-          <div className="flex justify-center">{drawer}</div>
+          <div className="flex justify-center items-center">{drawer}</div>
         </div>
       </div>
     </nav>

@@ -24,7 +24,10 @@ export function ProjectIntro({
       />
       <div className="screen-center my-10 ">
         {data.map((item) => (
-          <div className=" md:grid grid-cols-5 mb-5 text-pri_text">
+          <div
+            className=" md:grid grid-cols-5 mb-5 text-pri_text"
+            key={item.title}
+          >
             <p className="col-span-1 mb-2 md:mb-0 h4-text font-medium">
               {item.title}
             </p>

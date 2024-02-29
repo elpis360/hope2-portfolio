@@ -23,11 +23,19 @@ type DataImage = {
   title?: string;
   sub_heading?: string;
   after_image?: {
-    text: string[];
+    text?: string[];
+    list?: { header?: string; text?: string }[];
+    special?: Array<Special>;
   };
 };
 type ConclusionData = {
-  text: string[];
+  text?: string[];
   list?: string[];
   after_text?: string[];
+};
+
+type Special = {
+  text?: string;
+  style?: string;
+  div_style?: string;
 };

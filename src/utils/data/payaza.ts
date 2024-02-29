@@ -252,7 +252,7 @@ export const project_data: ProjectData = [
             },
           },
           {
-            url: "/assets/images/payaza/insufficent_balance.svg",
+            url: "/assets/images/payaza/result.svg",
             alt: "Payaza Transaction results",
             style: "aspect-ratio: 16/9 object-cover w-full",
             after_image: {

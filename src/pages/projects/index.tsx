@@ -8,8 +8,10 @@ import React from "react";
 const Projects = () => {
   return (
     <Layout title="Projects">
-      <h2 className="font-medium h1-text mb-5">Professional Work</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2  gap-5 lg:gap-10">
+      <h2 className="font-medium h1-text mb-5 screen-center mt-10">
+        Professional Work
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5 lg:gap-10 lg:gap-x-20 gap-x-10 screen-center">
         {ProjectsData.map((project) => (
           <div
             className="border border-border  rounded-[10px] flex-col flex"
@@ -28,7 +30,10 @@ const Projects = () => {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-5">
                   {project.items.map((item) => (
-                    <div className="border border-border px-2 py-1 rounded-[3px]">
+                    <div
+                      className="border border-border px-2 py-1 rounded-[3px]"
+                      key={item.substring(0, 8)}
+                    >
                       <p className="font-light text-[6px] lg:text-xs text-pri_text">
                         {item}
                       </p>

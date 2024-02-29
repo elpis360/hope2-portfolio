@@ -10,7 +10,7 @@ export function Layout({
   title: string;
 }) {
   return (
-    <div className="bg-[#121212]">
+    <div className="">
       <Head>
         <title>{title ? title + " - Hope Jonah" : "Hope Jonah"}</title>
         <meta
@@ -20,12 +20,12 @@ export function Layout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
-      <div className="lg:flex min-h-screen">
-        <div className="lg:w-[15%] bg-black">
+      <div className="lg:flex min-h-screen ">
+        <div className="lg:w-[15%] bg-black ">
           <Navbar />
         </div>
-        <main className="flex-1">
-          <div className="">
+        <main className="flex-1 min-h-screen flex flex-col">
+          <div className="flex-1">
             <div>{children}</div>
           </div>
           <footer>

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 .card {
-  @apply bg-black rounded-[10px] p-5 border border-[#565656] text-white;
+  @apply bg-black rounded-[10px] p-5 lg:p-10 border border-[#565656] text-white;
 }
 body {
-  @apply text-white;
+  @apply text-white bg-[#121212];
 }
 .p-text {
   @apply text-xs md:text-[14px] lg:text-base;
@@ -19,4 +19,7 @@ body {
 }
 .screen-center {
   @apply w-[90%] mx-auto;
+}
+.center__text {
+  @apply w-[75%] mx-auto;
 }

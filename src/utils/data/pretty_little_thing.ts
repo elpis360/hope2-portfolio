@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 export const project_intro = [
   {
     title: "Sector",
@@ -99,13 +101,20 @@ export const project_data: ProjectData = [
             style: "aspect-ratio: 16/9 object-cover w-full",
             title: "Snippet of the Heuristic Evaluation conducted",
             after_image: {
-              text: [
-                "I identified several usability issues, including:",
-                "<b>Failure to communicate system status:<b/> Certain parts of the app, such as the splash screen, took 10 seconds to load without providing any indication of what was happening during that time.",
-
-                "<b>Lack of user control & freedom</b>: When intentionally removing an item from the shopping bag, there was no confirmation prompt, and no option to undo the action. The same lack of confirmation occurred when using the 'CLEAR' button to remove all items from the shopping cart.",
-
-                "<b>Lack of match between system and the real world</b>: To view available sizes of an item, users had to click the 'ADD TO BAG' button first. In a real-world scenario, you wouldn't typically add an item to your shopping basket before checking its size.",
+              text: ["I identified several usability issues, including:"],
+              list: [
+                {
+                  header: "Lack of user control & freedom:",
+                  text: "Certain parts of the app, such as the splash screen, took 10 seconds to load without providing any indication of what was happening during that time.",
+                },
+                {
+                  header: "Schedule Payments in Advance:",
+                  text: " Users can schedule payments to be processed anywhere from two to 30 business days in advance, providing flexibility and allowing for efficient planning.",
+                },
+                {
+                  header: "Lack of match between system and the real world:",
+                  text: " To view available sizes of an item, users had to click the 'ADD TO BAG' button first. In a real-world scenario, you wouldn't typically add an item to your shopping basket before checking its size.",
+                },
               ],
             },
           },
@@ -115,17 +124,20 @@ export const project_data: ProjectData = [
         header: "User Interviews",
         text: [
           "Recognizing the necessity of engaging with actual users to enhance the system's user experience, I conducted one-on-one interviews with 5 participants who actively use the app. I opted for this research method to secure in-depth responses, a level of detail I believed might be challenging to attain through a survey.",
-          // {
-          //   list: {
-          //     header: "The interviews were guided by three primary objectives:",
-          //     items: [
-          //       "Understand the typical user of the PLT app.",
-          //       "Gain insight into how the app influences the user's emotions and experiences.",
-          //       "Determine whether the app is effectively meeting the user's needs.",
-          //     ],
-          //   },
-          // },
-          "Some of the questions posed to participants included: [Include a sample of the questions here.",
+          "The interviews were guided by three primary objectives:",
+        ],
+        list: [
+          {
+            header: "Understand the typical user of the PLT app.",
+          },
+          {
+            header:
+              "Gain insight into how the app influences the user's emotions and experiences.",
+          },
+          {
+            header:
+              "Determine whether the app is effectively meeting the user's needs.",
+          },
         ],
         image: [
           {
@@ -135,12 +147,7 @@ export const project_data: ProjectData = [
             title: "Some of the interview questions",
             after_image: {
               text: [
-                "I identified several usability issues, including:",
-                "<b>Failure to communicate system status:<b/> Certain parts of the app, such as the splash screen, took 10 seconds to load without providing any indication of what was happening during that time.",
-
-                "<b>Lack of user control & freedom</b>: When intentionally removing an item from the shopping bag, there was no confirmation prompt, and no option to undo the action. The same lack of confirmation occurred when using the 'CLEAR' button to remove all items from the shopping cart.",
-
-                "<b>Lack of match between system and the real world</b>: To view available sizes of an item, users had to click the 'ADD TO BAG' button first. In a real-world scenario, you wouldn't typically add an item to your shopping basket before checking its size.",
+                "After transcribing the interview discussions, I coded the content and transferred the coded information onto Post-It notes. This facilitated the process of Affinity Mapping, allowing me to identify and group common themes that emerged from the interviews.",
               ],
             },
           },
@@ -156,14 +163,25 @@ export const project_data: ProjectData = [
             style: "aspect-ratio: 16/9 object-cover w-full",
             title: "Affinity Mapping",
             after_image: {
-              text: [
-                "From the interviews, several key pain points emerged:",
-                "<b>Viewing out-of-stock items</b>: Users expressed frustration at navigating through the app only to discover that the desired item was no longer in stock. This led to a sense of wasted time and disappointment.",
-
-                "<b>Inability to access Wishlist items quickly</b>: Users, especially those with extensive Wishlists, faced challenges navigating swiftly through their saved items. This issue was particularly noticeable among users with a larger number of items in their Wishlist.",
-
-                "<b>Limited resources for informed decisions</b>: Users highlighted the challenge of making informed purchasing decisions based solely on a few images. Lack of additional resources, such as product videos, made it difficult for them to assess items thoroughly, reducing their likelihood of making a purchase.",
-                "<b>Feeling overwhelmed by the app's extensive inventory</b>: Users reported feeling overwhelmed by the sheer number of items available on the app, making it challenging to find the right outfit amidst the vast selection.",
+              text: ["From the interviews, several key pain points emerged:"],
+              list: [
+                {
+                  header: "Viewing out-of-stock items",
+                  text: "Users expressed frustration at navigating through the app only to discover that the desired item was no longer in stock. This led to a sense of wasted time and disappointment.",
+                },
+                {
+                  header: "Inability to access Wishlist items quickly",
+                  text: " Users, especially those with extensive Wishlists, faced challenges navigating swiftly through their saved items. This issue was particularly noticeable among users with a larger number of items in their Wishlist.",
+                },
+                {
+                  header: "Limited resources for informed decisions",
+                  text: "Users highlighted the challenge of making informed purchasing decisions based solely on a few images. Lack of additional resources, such as product videos, made it difficult for them to assess items thoroughly, reducing their likelihood of making a purchase.",
+                },
+                {
+                  header:
+                    "Feeling overwhelmed by the app's extensive inventory",
+                  text: " Users reported feeling overwhelmed by the sheer number of items available on the app, making it challenging to find the right outfit amidst the vast selection.",
+                },
               ],
             },
           },
@@ -213,8 +231,12 @@ export const project_data: ProjectData = [
             style: "aspect-ratio: 16/9 object-cover w-full",
             title: "Choosen How Might We",
             after_image: {
-              text: [
-                "How can we redesign the app to provide users with increased autonomy, enabling them to make more informed purchasing decisions?",
+              special: [
+                {
+                  text: "How can we redesign the app to provide users with increased autonomy, enabling them to make more informed purchasing decisions?",
+                  style: "italic h4-text ",
+                  div_style: "center__text",
+                },
               ],
             },
           },
@@ -296,9 +318,20 @@ export const project_data: ProjectData = [
             after_image: {
               text: [
                 "The goal was to streamline the content on the home page because I found the original to be overly repetitive. Research also revealed that users perceived the home page as crowded, leading to a sense of overwhelm. To address this, I replaced the repetitive 'Shop By' categories with two new sections:",
-                "New In Top Picks Just For You",
-
-                "These categories were selected based on research, indicating their importance to users. I included clear headings for each section to effectively communicate the content to users.",
+              ],
+              list: [
+                {
+                  text: "New in",
+                },
+                {
+                  text: "Top Picks Just For You",
+                },
+              ],
+              special: [
+                {
+                  text: "These categories were selected based on research, indicating their importance to users. I included clear headings for each section to effectively communicate the content to users.",
+                  style: "text-p  my-3 lg:my-5 ",
+                },
               ],
             },
           },
