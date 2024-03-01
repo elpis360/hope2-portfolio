@@ -4,7 +4,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { useRouter as Router } from "next/router";
 import { Alert, CircularProgress } from "@mui/material";
 import { Eye, EyeSlash } from "iconsax-react";
 
@@ -13,9 +14,10 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [inputType, setInputType] = useState<boolean>(false);
+  const [inputType, setInputType] = useState<boolean>(true);
   const router = useRouter();
-  const { query } = useRouter();
+  const { query } = Router();
+
   const nextRoute = query.next as string;
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,7 +45,7 @@ export default function LoginPage() {
       if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        router.push(nextRoute || "/");
+        router.replace(nextRoute || "/");
       }
     } catch (e) {
       console.log(e);
