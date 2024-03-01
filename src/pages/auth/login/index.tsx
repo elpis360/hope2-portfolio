@@ -46,7 +46,6 @@ export default function LoginPage() {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
         router.replace(next ?? "/");
-        setSuccess(false);
       }
     } catch (e) {
       console.log(e);
