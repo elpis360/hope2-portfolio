@@ -82,7 +82,22 @@ export const project_data: ProjectData = [
         header: "Competitive analysis",
         text: [
           "We examined organizations currently providing this solution to draw comparisons and identify both successful elements and potential loopholes in the existing system. Notable organizations in this comparison included:",
-
+        ],
+        list: [
+          {
+            text: "RazorPay",
+          },
+          {
+            text: "Paystack",
+          },
+          {
+            text: "PayPal",
+          },
+          {
+            text: "Banks Via (Bank transfers ACH)",
+          },
+        ],
+        after_text: [
           "The objective was to uncover user frustrations with the current systems",
         ],
       },

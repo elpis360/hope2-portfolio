@@ -5,15 +5,15 @@ import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useRouter } from "next/router";
-import { ThreeDots } from "react-loading-icons";
 import { Alert, CircularProgress } from "@mui/material";
-import { CheckIcon } from "@mantine/core";
+import { Eye, EyeSlash } from "iconsax-react";
 
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [inputType, setInputType] = useState<boolean>(false);
   const router = useRouter();
   const { query } = useRouter();
   const nextRoute = query.next as string;
@@ -40,12 +40,10 @@ export default function LoginPage() {
       if (response.error) {
         setError(response.error);
       }
-
-      if (res.status === 200) {
+      if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        console.log(nextRoute);
-        router.replace(nextRoute || "/");
+        router.push(nextRoute || "/");
       }
     } catch (e) {
       console.log(e);
@@ -90,18 +88,26 @@ export default function LoginPage() {
           <form className="mt-4" onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <label className="uppercase text-p">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="bg-inherit border-border border rounded-md p-4 mt-2"
-              />
+              <div className="relative w-full">
+                <input
+                  type={inputType ? "text" : "password"}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  className="bg-inherit border-border border rounded-md p-4 mt-2 w-full"
+                />
+                <div
+                  className="absolute right-5 top-1/2 -translate-y-1/2"
+                  onClick={() => setInputType(!inputType)}
+                >
+                  {inputType ? <Eye /> : <EyeSlash />}
+                </div>
+              </div>
               <button
                 type="submit"
                 className="bg-primary mt-5 text-p flex items-center gap-4 justify-center px-4 py-4 text-[#020202] p-text text-center rounded-[10px] font-medium"
               >
                 Log in
-                {isLoading && <CircularProgress />}
+                {isLoading && <CircularProgress size={20} color="primary" />}
               </button>
               {error && <p className="p-text text-red-500">{error}</p>}
             </div>

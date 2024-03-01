@@ -12,13 +12,14 @@ type ProjectDataItem = {
     text?: string[];
     list?: { header?: string; text?: string }[];
     image?: DataImage[];
+    after_text?: string[];
   }[];
 };
 
 type ProjectData = Array<ProjectDataItem>;
 type DataImage = {
-  url: string;
-  alt: string;
+  url?: string;
+  alt?: string;
   style: string;
   title?: string;
   sub_heading?: string;

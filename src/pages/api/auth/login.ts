@@ -1,9 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import User from "../../../../models/User";
-import bcrypt from "bcrypt";
 import crypto from "crypto";
 
-const PASSWORD = "password";
+const PASSWORD = "hopejonah360";
 
 const signup = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {

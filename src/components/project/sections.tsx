@@ -20,8 +20,8 @@ export function ProjectSection({ data }: { data: ProjectData }) {
           {item?.image?.map((image) => (
             <div key={image.url} className="my-5 lg:my-10">
               <Image
-                alt={image.alt}
-                src={image.url}
+                alt={image?.alt ?? ""}
+                src={image?.url ?? ""}
                 width={500}
                 height={500}
                 priority
@@ -73,6 +73,16 @@ export function ProjectSection({ data }: { data: ProjectData }) {
                     </li>
                   ))}
                 </ul>
+                <div>
+                  {sub.after_text?.map((text) => (
+                    <p
+                      className="p-text text-pri_text mt-2"
+                      key={text.substring(0, 8)}
+                    >
+                      {text}
+                    </p>
+                  ))}
+                </div>
                 {sub?.image?.map((image) => (
                   <div key={image.url} className="my-5 lg:my-10">
                     <p className="text-h4_text font-bold my-2 lg:my-4">
@@ -80,8 +90,8 @@ export function ProjectSection({ data }: { data: ProjectData }) {
                     </p>
 
                     <Image
-                      alt={image.alt}
-                      src={image.url}
+                      alt={image?.alt ?? ""}
+                      src={image?.url ?? ""}
                       width={500}
                       height={400}
                       priority

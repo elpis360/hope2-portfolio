@@ -1,7 +1,4 @@
 import { HomeCardType } from "@/utils/types/home";
-import { Card, CardContent } from "@mui/material";
-import { Header } from "../Texts/Header";
-import { Paragraph } from "../Texts/Paragraph";
 
 const HomeCard = (props: HomeCardType) => {
   const { header, sub_heading, span } = props;
@@ -14,7 +11,7 @@ const HomeCard = (props: HomeCardType) => {
             &nbsp;{span}
           </span>
         </p>
-        <p className="text-center p-text font-normal capitalize mt-2">
+        <p className="text-center p-text font-normal capitalize lg:mt-2">
           {sub_heading}
         </p>
       </div>

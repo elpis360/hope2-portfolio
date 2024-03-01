@@ -4,19 +4,30 @@ import { Box, Paper, styled } from "@mui/material";
 import { Layout } from "@/components/layout";
 import { HomeCardData, TrustedByData } from "@/utils/data";
 import { Header } from "@/components/Texts";
-import { Paragraph } from "@/components/Texts";
 import HomeCard from "@/components/card/HomeCard";
 import Link from "next/link";
 import Image from "next/image";
-import { useDisclosure } from "@mantine/hooks";
-import { Drawer, Button } from "@mantine/core";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(2),
   }));
-
+  const carousel_images = [
+    { image_url: "/assets/images/payaza/hero.svg", link: "/projects/payaza" },
+    {
+      image_url: "/assets/images/pretty_little_thing/hero.svg",
+      link: "/projects/pretty-little-thing",
+    },
+    {
+      image_url: "/assets/images/payaza_merchant_verification/hero.svg",
+      link: "/projects/payaza-merchant-verification",
+    },
+    { image_url: "/assets/images/payruze.svg", link: "" },
+  ];
   return (
     <Layout title="Home">
       <div className="screen-center relative  my-5 lg:my-10">
@@ -47,7 +58,7 @@ export default function Home() {
             </div>
             <div className="card">
               <p className="h1-text capitalize font-medium">About Me</p>
-              <p className="text-[#DFDFDF] my-4">
+              <p className="text-[#DFDFDF] my-4 p-text">
                 I&rsquo;m a seasoned user experience designer, passionate about
                 creating seamless and user-centric digital experiences. With a
                 proven track record in designing intuitive interfaces and
@@ -67,13 +78,21 @@ export default function Home() {
                   view all
                 </p>
               </Link>
-              <Image
-                src="/assets/images/pretty_little_thing.png"
-                width={500}
-                height={500}
-                alt="Pretty Little Thing"
-                className="mx-auto w-full"
-              />
+              <Carousel autoPlay className="h-full">
+                {carousel_images.map((image) => (
+                  <div className="w-full h-full" key={image.image_url}>
+                    <Link href={image.link} className="w-full h-full block">
+                      <Image
+                        src={image.image_url}
+                        width={500}
+                        height={500}
+                        alt="Pretty Little Thing"
+                        className="h-full w-full"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </Carousel>
             </div>
             <div className="flex flex-col gap-3 card">
               <Header>Trusted by</Header>

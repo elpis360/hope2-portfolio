@@ -86,7 +86,7 @@ export function Navbar() {
   return (
     <nav
       aria-label="mobile navigation "
-      className="bg-black relative mb-[3.5rem]"
+      className="bg-black relative mb-[3.5rem] z-20"
     >
       <div className=" bg-black   w-full lg:hidden  fixed h-[3.5rem]   top-0 left-0">
         <div className="justify-between flex items-center screen-center">
