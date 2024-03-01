@@ -21,6 +21,8 @@ const Projects = () => {
               <Image
                 alt={project.header}
                 src={`/assets/images/${project.image}`}
+                placeholder="blur"
+                blurDataURL="/assets/images/hope_image.png"
                 width={300}
                 height={200}
                 className="w-full  aspect-ratio:16/9 object-cover rounded-t-[10px]"

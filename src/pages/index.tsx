@@ -78,7 +78,7 @@ export default function Home() {
                   view all
                 </p>
               </Link>
-              <Carousel autoPlay className="h-full">
+              <Carousel autoPlay infiniteLoop className="h-full">
                 {carousel_images.map((image) => (
                   <div className="w-full h-full" key={image.image_url}>
                     <Link href={image.link} className="w-full h-full block">
@@ -86,6 +86,8 @@ export default function Home() {
                         src={image.image_url}
                         width={500}
                         height={500}
+                        placeholder="blur"
+                        blurDataURL="/assets/images/hope_image.png"
                         alt="Pretty Little Thing"
                         className="h-full w-full"
                       />
