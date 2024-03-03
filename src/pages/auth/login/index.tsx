@@ -20,12 +20,6 @@ export default function LoginPage() {
   const next = searchParams.get("next");
   const token = getCookie(COOKIES.auth);
 
-  useEffect(() => {
-    if (token) {
-      console.log("token here");
-      router.push(next || "/");
-    }
-  }, [router, token, next]);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!password) {
@@ -52,6 +46,7 @@ export default function LoginPage() {
       if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
+        router.push(next || "/");
       }
     } catch (e) {
       console.log(e);
