@@ -47,7 +47,7 @@ export default function LoginPage() {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
         console.log(next, "about to navigate");
-        router.push("/");
+        router.push(next || "/");
       }
     } catch (e) {
       console.log(e);
