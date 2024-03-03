@@ -19,9 +19,10 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const next = searchParams.get("next");
   const token = getCookie(COOKIES.auth);
-  console.log(token);
+
   useEffect(() => {
     if (token) {
+      console.log("token here");
       router.push(next || "/");
     }
   }, [router, token, next]);
