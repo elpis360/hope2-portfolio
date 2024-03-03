@@ -78,7 +78,12 @@ export default function Home() {
                   view all
                 </p>
               </Link>
-              <Carousel autoPlay infiniteLoop className="h-full">
+              <Carousel
+                autoPlay
+                infiniteLoop
+                showThumbs={false}
+                className="h-full"
+              >
                 {carousel_images.map((image) => (
                   <div className="w-full h-full" key={image.image_url}>
                     <Link href={image.link} className="w-full h-full block">
