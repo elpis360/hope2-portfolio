@@ -15,7 +15,6 @@ export async function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
 
   if (!token && !authRoutes && !allowedRoute) {
-    console.log("stopped");
     url.search = `next=${url.pathname}`;
     url.pathname = "/auth/login";
     return NextResponse.redirect(url);
