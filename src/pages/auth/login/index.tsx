@@ -1,8 +1,8 @@
 import { Logo } from "@/components/logo";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { getCookie, setCookie } from "cookies-next";
+import React, { useState } from "react";
+import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
@@ -18,7 +18,6 @@ export default function LoginPage() {
 
   const searchParams = useSearchParams();
   const next = searchParams.get("next");
-  const token = getCookie(COOKIES.auth);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

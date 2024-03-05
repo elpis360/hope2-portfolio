@@ -51,7 +51,7 @@ const Projects = () => {
               </div>
               <div className="">
                 {project.url ? (
-                  <Link href={`/projects/${project.url}`}>
+                  <Link href={`/works/${project.url}`}>
                     <button className="bg-primary px-4 py-2 text-[#020202] p-text rounded-[10px] font-medium">
                       View Case study
                     </button>

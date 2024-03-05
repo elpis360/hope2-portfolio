@@ -26,7 +26,7 @@ const PayazaMerchantVerification = () => {
         <ProjectConclusion
           prevButton={{ link: "/", text: "Back to Homepage" }}
           nextButton={{
-            link: "/projects/pretty-little-thing",
+            link: "/works/pretty-little-thing",
             text: "Next Project",
           }}
           conclusion_data={conclusion_data}

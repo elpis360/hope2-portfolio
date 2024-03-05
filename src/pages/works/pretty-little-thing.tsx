@@ -24,7 +24,7 @@ function PrettyLitteThing() {
       </section>
       <ProjectConclusion
         prevButton={{ link: "/", text: "Back to Homepage" }}
-        nextButton={{ link: "/projects/payaza", text: "Next Project" }}
+        nextButton={{ link: "/works/payaza", text: "Next Project" }}
         conclusion_data={conclusion_data}
       />
     </Layout>

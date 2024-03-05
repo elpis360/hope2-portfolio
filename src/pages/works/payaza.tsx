@@ -25,7 +25,7 @@ const Payaza = () => {
       <ProjectConclusion
         prevButton={{ link: "/", text: "Back to Homepage" }}
         nextButton={{
-          link: "/projects/payaza-merchant-verification",
+          link: "/works/payaza-merchant-verification",
           text: "Next Project",
         }}
         conclusion_data={conclusion_data}

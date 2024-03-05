@@ -17,14 +17,14 @@ export default function Home() {
     padding: theme.spacing(2),
   }));
   const carousel_images = [
-    { image_url: "/assets/images/payaza/hero.svg", link: "/projects/payaza" },
+    { image_url: "/assets/images/payaza/hero.svg", link: "/works/payaza" },
     {
       image_url: "/assets/images/pretty_little_thing/hero.svg",
-      link: "/projects/pretty-little-thing",
+      link: "/works/pretty-little-thing",
     },
     {
       image_url: "/assets/images/payaza_merchant_verification/hero.svg",
-      link: "/projects/payaza-merchant-verification",
+      link: "/works/payaza-merchant-verification",
     },
     { image_url: "/assets/images/payruze.svg", link: "" },
   ];
