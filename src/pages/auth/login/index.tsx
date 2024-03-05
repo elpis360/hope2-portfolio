@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Alert, CircularProgress } from "@mui/material";
 import { Eye, EyeSlash } from "iconsax-react";
 export default function LoginPage() {
@@ -46,7 +46,7 @@ export default function LoginPage() {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
         console.log("about to navigate to " + next);
-        router.replace("/projects/payaza");
+        router.replace(next || "/");
       }
     } catch (e) {
       console.log(e);
