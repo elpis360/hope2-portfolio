@@ -46,8 +46,8 @@ export default function LoginPage() {
       if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        console.log(next, "about to navigate");
-        router.replace("/");
+        console.log( "about to navigate to "+next);
+        router.replace(next ?? "/");
       }
     } catch (e) {
       console.log(e);
