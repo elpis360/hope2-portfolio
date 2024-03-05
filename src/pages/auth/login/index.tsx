@@ -46,8 +46,8 @@ export default function LoginPage() {
       if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        console.log( "about to navigate to "+next);
-        router.replace(next ?? "/");
+        console.log("about to navigate to " + next);
+        router.replace("/projects/payaza");
       }
     } catch (e) {
       console.log(e);

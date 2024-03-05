@@ -10,7 +10,7 @@ export function ProjectSection({ data }: { data: ProjectData }) {
           <div className="mb-5 lg:mb-10">
             {item?.text?.map((text) => (
               <p
-                key={text.substring(0, 8)}
+                key={text.substring(0, 30)}
                 className="p-text text-pri_text mb-2 lg:mb-3"
               >
                 {text}
