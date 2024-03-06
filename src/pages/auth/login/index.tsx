@@ -45,9 +45,16 @@ export default function LoginPage() {
       if (res.ok) {
         setSuccess(true);
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        console.log("about to navigate to " + next);
-        router.replace(next || "/");
-        console.log("routed to ", next);
+
+        if (next) {
+          if (next === "/works/pretty-little-thing") {
+            router.push("/works/pretty-little-thing");
+          } else if (next == "/works/payaza") {
+            router.push("/works/payaza");
+          } else router.push("/works/payaza-merchant-verification");
+        } else router.push("/");
+
+        return;
       }
     } catch (e) {
       console.log(e);

@@ -7,15 +7,13 @@ export async function middleware(req: NextRequest) {
   // GET ACCESS TOKEN FROM COOKIES
   const token = cookies.get(COOKIES.auth);
 
-  const authRoutes = nextUrl.pathname.startsWith("/auth");
   console.log(nextUrl.pathname);
-  const ALLOWEDROUTES = ["/", "/projects", "/contact", "/about"];
+  const ALLOWEDROUTES = ["/", "/projects", "/contact", "/about", "/auth/login"];
   const allowedRoute = ALLOWEDROUTES.includes(nextUrl.pathname);
 
   const url = req.nextUrl.clone();
 
-  if (!token && !authRoutes && !allowedRoute) {
-    console.log("not valid route");
+  if (!token && !allowedRoute) {
     url.search = `next=${url.pathname}`;
     url.pathname = "/auth/login";
     return NextResponse.redirect(url);
