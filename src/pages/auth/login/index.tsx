@@ -32,14 +32,14 @@ export default function LoginPage() {
       const token = crypto.randomBytes(10).toString("hex");
       setSuccess(true);
       setCookie(COOKIES.auth, token, COOKIES.options);
-
-      if (next) {
-        if (next === "/works/pretty-little-thing") {
-          router.push("/works/pretty-little-thing");
-        } else if (next == "/works/payaza") {
-          router.push("/works/payaza");
-        } else router.push("/works/payaza-merchant-verification");
-      } else router.push("/");
+      router.push("/works/payaza");
+      // if (next) {
+      //   if (next === "/works/pretty-little-thing") {
+      //     router.push("/works/pretty-little-thing");
+      //   } else if (next == "/works/payaza") {
+      //     router.push("/works/payaza");
+      //   } else router.push("/works/payaza-merchant-verification");
+      // } else router.push("/");
     } else {
       setError("incorrect details");
     }
