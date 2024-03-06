@@ -53,8 +53,6 @@ export default function LoginPage() {
             router.push("/works/payaza");
           } else router.push("/works/payaza-merchant-verification");
         } else router.push("/");
-
-        return;
       }
     } catch (e) {
       console.log(e);
