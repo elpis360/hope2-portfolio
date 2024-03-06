@@ -86,7 +86,7 @@ export default function LoginPage() {
           />
         </div>
 
-        <div className="card p-10 z-10 text-pri_text max-w-[90%] ">
+        <div className="bg-black rounded-[10px]  lg:p-10   p-5 z-10 text-pri_text max-w-[90%] ">
           <div className="flex justify-center mb-4">
             <Logo />
           </div>

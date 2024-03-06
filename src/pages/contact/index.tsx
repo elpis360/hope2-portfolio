@@ -28,12 +28,22 @@ const Contact = () => {
 
               <p className="p-text Capitalize col-span-2">{contact.name}</p>
               <div className="col-span-3">
-                <a
-                  href={contact.link}
-                  className="text-primary underline p-text"
-                >
-                  {contact.link_text}
-                </a>
+                {contact.mailto ? (
+                  <a
+                    href={`mailto:${contact?.mailto}`}
+                    className="text-primary underline p-text"
+                  >
+                    {contact.link_text}
+                  </a>
+                ) : (
+                  <a
+                    href={contact?.link}
+                    target="_blank"
+                    className="text-primary underline p-text"
+                  >
+                    {contact.link_text}
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -49,28 +59,28 @@ export const contactMeInfo = [
     icon: <FaRegEnvelope size={30} />,
     icon_mobile: <FaRegEnvelope size={18} />,
     name: "email",
-    link: "uxdesign.hope@gmail.com",
+    mailto: "uxdesign.hope@gmail.com",
     link_text: "uxdesign.hope@gmail.com",
   },
   {
     icon: <FaLinkedinIn size={30} />,
     icon_mobile: <FaLinkedinIn size={18} />,
     name: "linkedin",
-    link: "",
+    link: "https://www.linkedin.com/in/hope-jonah-4b8233173",
     link_text: "@hope-jonah",
   },
   {
     icon: <FaBehance size={30} />,
     icon_mobile: <FaBehance size={18} />,
     name: "behance",
-    link: "",
+    link: "https://www.behance.net/hopejonah360",
     link_text: "@hopejonah360",
   },
   {
     icon: <FaXTwitter size={30} />,
     icon_mobile: <FaXTwitter size={18} />,
     name: "X(Twitter)",
-    link: "",
+    link: "https://twitter.com/iam_elpis",
     link_text: "@iam_elpis",
   },
 ];

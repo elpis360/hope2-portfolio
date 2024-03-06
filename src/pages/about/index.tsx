@@ -29,7 +29,7 @@ const AboutPage = () => {
                 landscapes, Interiors for private residences, commercial and
                 mixed use developments. My experience in the design field has
                 been an invaluable lesson in collaboration, communication,
-                creativity, and problem solving. Most important, &apos;ve
+                creativity, and problem solving. Most important, I&apos;ve
                 learned how to contribute as part of a greater whole to design
                 things that are used by real people everyday.
               </p>
