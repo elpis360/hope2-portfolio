@@ -8,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Alert, CircularProgress } from "@mui/material";
 import { Eye, EyeSlash } from "iconsax-react";
+import crypto from "crypto";
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,44 +22,61 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     if (!password) {
       setError("Enter password");
       return;
     }
-    try {
-      setError("");
-      setIsLoading(true);
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ password }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
 
-      const response = await res.json();
+    if (password === "hopejonah360") {
+      const token = crypto.randomBytes(10).toString("hex");
+      setSuccess(true);
+      setCookie(COOKIES.auth, token, COOKIES.options);
 
-      setPassword("");
-      if (response.error) {
-        setError(response.error);
-      }
-      if (res.ok) {
-        setSuccess(true);
-        setCookie(COOKIES.auth, response?.token, COOKIES.options);
-
-        if (next) {
-          if (next === "/works/pretty-little-thing") {
-            router.push("/works/pretty-little-thing");
-          } else if (next == "/works/payaza") {
-            router.push("/works/payaza");
-          } else router.push("/works/payaza-merchant-verification");
-        } else router.push("/");
-      }
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setIsLoading(false);
+      if (next) {
+        if (next === "/works/pretty-little-thing") {
+          router.push("/works/pretty-little-thing");
+        } else if (next == "/works/payaza") {
+          router.push("/works/payaza");
+        } else router.push("/works/payaza-merchant-verification");
+      } else router.push("/");
+    } else {
+      setError("incorrect details");
     }
+    // try {
+    //   setError("");
+    //   setIsLoading(true);
+    //   const res = await fetch("/api/auth/login", {
+    //     method: "POST",
+    //     body: JSON.stringify({ password }),
+    //     headers: {
+    //       "Content-type": "application/json",
+    //     },
+    //   });
+
+    //   const response = await res.json();
+
+    //   setPassword("");
+    //   if (response.error) {
+    //     setError(response.error);
+    //   }
+    //   if (res.ok) {
+    //     setSuccess(true);
+    //     setCookie(COOKIES.auth, response?.token, COOKIES.options);
+
+    //     if (next) {
+    //       if (next === "/works/pretty-little-thing") {
+    //         router.push("/works/pretty-little-thing");
+    //       } else if (next == "/works/payaza") {
+    //         router.push("/works/payaza");
+    //       } else router.push("/works/payaza-merchant-verification");
+    //     } else router.push("/");
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
 
   return (
