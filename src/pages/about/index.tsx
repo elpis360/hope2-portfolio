@@ -25,7 +25,7 @@ const AboutPage = () => {
             <div className="flex flex-col gap-5 ">
               <p className="text-[#DFDFDF]">
                 Hi there! I&apos;m Hope, an architect turned UX designer. Before
-                discovering UX, I worked for 2 years as an architect designing
+                discovering UX, I worked for 3+ years as an architect designing
                 landscapes, Interiors for private residences, commercial and
                 mixed use developments. My experience in the design field has
                 been an invaluable lesson in collaboration, communication,
