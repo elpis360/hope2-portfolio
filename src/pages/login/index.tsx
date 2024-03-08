@@ -8,8 +8,8 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Loader } from "@mantine/core";
 import { Eye, EyeSlash } from "iconsax-react";
-
 import { notify } from "@/components/notification";
+import { Notifications } from "@mantine/notifications";
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -50,7 +50,11 @@ export default function LoginPage() {
         });
       }
       if (res.ok) {
-        notify({ message: "Successful Login", title: "Success", color: "red" });
+        notify({
+          message: "Successful Login",
+          title: "Success",
+          color: "green",
+        });
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
 
         router.replace(next || "/");
@@ -73,6 +77,7 @@ export default function LoginPage() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
+      <Notifications position="top-right" />
       <div className="w-[200px]"></div>
       <div className="item-center flex justify-center items-center relative h-screen w-full bg-black">
         <div className="absolute inset-0 flex items-center justify-center z-0">
