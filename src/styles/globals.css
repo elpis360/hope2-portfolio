@@ -6,7 +6,7 @@
   @apply bg-black rounded-[10px] p-5 lg:p-10 border border-[#565656] text-white;
 }
 body {
-  @apply text-white bg-[#121212];
+  @apply !text-white !bg-[#121212];
 }
 .p-text {
   @apply text-[14px] md:text-[15px] lg:text-base;

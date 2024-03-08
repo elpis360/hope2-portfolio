@@ -8,7 +8,7 @@ import HomeCard from "@/components/card/HomeCard";
 import Link from "next/link";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import { Carousel } from "@mantine/carousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,13 +79,18 @@ export default function Home() {
                 </p>
               </Link>
               <Carousel
-                autoPlay
-                infiniteLoop
-                showThumbs={false}
-                className="h-full"
+                height="100%"
+                loop
+                mih="80%"
+                px={10}
+                maw={"100%"}
+                withIndicators
               >
                 {carousel_images.map((image) => (
-                  <div className="w-full h-full" key={image.image_url}>
+                  <Carousel.Slide
+                    className="w-full h-full"
+                    key={image.image_url}
+                  >
                     <Link href={image.link} className="w-full h-full block">
                       <Image
                         src={image.image_url}
@@ -97,7 +102,7 @@ export default function Home() {
                         className="h-full w-full"
                       />
                     </Link>
-                  </div>
+                  </Carousel.Slide>
                 ))}
               </Carousel>
             </div>

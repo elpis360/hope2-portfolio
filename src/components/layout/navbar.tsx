@@ -1,31 +1,29 @@
 import React from "react";
 import Link from "next/link";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { AlternateEmail, Close, CloseSharp } from "@mui/icons-material";
-import { CloseCircle, CloseSquare, Home2, Menu } from "iconsax-react";
+import { AlternateEmail } from "@mui/icons-material";
+import { CloseCircle, Home2 } from "iconsax-react";
 import { PiProjectorScreen } from "react-icons/pi";
 import { Icon } from "@iconify/react";
 import { Logo } from "../logo";
 import { useRouter } from "next/router";
-import { Drawer } from "@mui/material";
+import { useDisclosure } from "@mantine/hooks";
+import { Drawer, Button, Group, NavLink } from "@mantine/core";
 
 import { MdOutlineMenu } from "react-icons/md";
 
 export function Navbar() {
-  const [toggleModal, setToggleModal] = React.useState(false);
+  const [opened, { open, close }] = useDisclosure(false);
+
   const router = useRouter();
   const size = 24;
   const navbar_list = [
-    { link: "/", icon: <Home2 size={size} />, name: "home" },
+    { link: "/", icon: <Home2 size={size} />, name: "Home" },
     {
       link: "/projects",
       icon: <PiProjectorScreen size={size} />,
-      name: "projects",
+      name: "Projects",
     },
-    { link: "/about", icon: <AlternateEmail />, name: "about" },
+    { link: "/about", icon: <AlternateEmail />, name: "About" },
     {
       link: "/contact",
       icon: (
@@ -35,7 +33,7 @@ export function Navbar() {
           height={size}
         />
       ),
-      name: "contact",
+      name: "Contact",
     },
   ];
 
@@ -44,40 +42,16 @@ export function Navbar() {
       {navbar_list.map((item) => (
         <div key={item.name}>
           <Link href={item.link}>
-            <ListItem
-              disablePadding
-              sx={{
-                color: {
-                  xs: "#ffff",
-                  lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
-                },
-                "&:hover": {
-                  color: "primary",
-                },
+            <NavLink
+              icon={item.icon}
+              label={item.name}
+              active={router.pathname === item.link}
+              color="gray"
+              variant="subtle"
+              classNames={{
+                root: "text-white",
               }}
-            >
-              <ListItemIcon
-                sx={{
-                  color: {
-                    xs: "#ffff",
-                    lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
-                  },
-                }}
-              >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                sx={{
-                  color: {
-                    xs: "#ffff",
-                    lg: router.pathname === item.link ? "#ffffff" : "#ACACAC",
-                  },
-                  textTransform: "capitalize",
-                }}
-              >
-                {item.name}
-              </ListItemText>
-            </ListItem>
+            />
           </Link>
         </div>
       ))}
@@ -94,35 +68,33 @@ export function Navbar() {
             <Logo width="30" />
           </div>
 
-          <button
-            aria-label="open drawer"
-            onClick={() => setToggleModal(!toggleModal)}
-          >
+          <button aria-label="open drawer" onClick={open}>
             <MdOutlineMenu color="white" size={30} />
           </button>
         </div>
       </div>
       <Drawer
-        open={toggleModal}
-        onClose={() => setToggleModal(!toggleModal)}
-        anchor="top"
+        opened={opened}
+        onClose={close}
+        position="top"
+        color="dark-9"
+        overlayProps={{ color: "black" }}
+        classNames={{
+          content: "bg-black border ",
+          header: "bg-black hidden",
+        }}
       >
-        <div className="bg-black border border-border">
-          <div className="screen-center mb-10">
-            <div className="flex items-center justify-between my-10">
-              <div>
-                <Logo width="30" />
-              </div>
-
-              <button
-                aria-label="open drawer"
-                onClick={() => setToggleModal(!toggleModal)}
-              >
-                <CloseCircle color="white" />
-              </button>
+        <div className="screen-center mb-10">
+          <div className="flex items-center justify-between my-10">
+            <div>
+              <Logo width="30" />
             </div>
-            {drawer}
+
+            <button aria-label="open drawer" onClick={close}>
+              <CloseCircle color="white" />
+            </button>
           </div>
+          {drawer}
         </div>
       </Drawer>
       <div className="hidden lg:block fixed h-full  w-[15%] ">

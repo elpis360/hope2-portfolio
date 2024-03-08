@@ -6,14 +6,14 @@ import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { Alert, CircularProgress } from "@mui/material";
+import { Loader } from "@mantine/core";
 import { Eye, EyeSlash } from "iconsax-react";
-import crypto from "crypto";
+
+import { notify } from "@/components/notification";
 export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [inputType, setInputType] = useState<boolean>(false);
   const router = useRouter();
 
@@ -43,10 +43,14 @@ export default function LoginPage() {
 
       setPassword("");
       if (response.error) {
-        setError(response.error);
+        notify({
+          message: response.error,
+          title: "Error",
+          color: "red",
+        });
       }
       if (res.ok) {
-        setSuccess(true);
+        notify({ message: "Successful Login", title: "Success", color: "red" });
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
 
         router.replace(next || "/");
@@ -69,8 +73,8 @@ export default function LoginPage() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
-      {success && <Alert severity="success">Successful</Alert>}
-      <div className="item-center flex justify-center items-center relative h-screen w-full">
+      <div className="w-[200px]"></div>
+      <div className="item-center flex justify-center items-center relative h-screen w-full bg-black">
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <Image
             src={`/assets/images/blur.png`}
@@ -113,7 +117,7 @@ export default function LoginPage() {
                 className="bg-primary mt-5 text-p flex items-center gap-4 justify-center px-4 py-4 text-[#020202] p-text text-center rounded-[10px] font-medium"
               >
                 Log in
-                {isLoading && <CircularProgress size={20} color="primary" />}
+                {isLoading && <Loader size={20} />}
               </button>
               {error && <p className="p-text text-red-500">{error}</p>}
             </div>
