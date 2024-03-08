@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { Loader } from "@mantine/core";
 import { Eye, EyeSlash } from "iconsax-react";
 import { notify } from "@/components/notification";
@@ -56,9 +56,9 @@ export default function LoginPage() {
           color: "green",
         });
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-
-        router.replace(next || "/");
+        router.push({ query: next }, undefined, { shallow: true });
       }
+      // router.replace(next || "/");
     } catch (e) {
       console.log(e);
     } finally {
