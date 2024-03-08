@@ -20,6 +20,8 @@
     "@mantine/notifications": "^6.0.21",
     "@mui/icons-material": "^5.15.5",
     "@mui/material": "^5.15.5",
+    "embla-carousel-autoplay": "^7.1.0",
+    "embla-carousel-react": "^7.1.0",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",

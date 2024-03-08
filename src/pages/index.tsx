@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
-import React from "react";
-import { Box, Paper, styled } from "@mui/material";
+import React, { useRef } from "react";
+import { Box } from "@mui/material";
 import { Layout } from "@/components/layout";
 import { HomeCardData, TrustedByData } from "@/utils/data";
 import { Header } from "@/components/Texts";
@@ -9,13 +9,13 @@ import Link from "next/link";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "@mantine/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { rem } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const Item = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(2),
-  }));
+  const autoplay = useRef(Autoplay({ delay: 5000 }));
   const carousel_images = [
     { image_url: "/assets/images/payaza/hero.svg", link: "/works/payaza" },
     {
@@ -85,6 +85,20 @@ export default function Home() {
                 px={10}
                 maw={"100%"}
                 withIndicators
+                plugins={[autoplay.current]}
+                onMouseEnter={autoplay.current.stop}
+                onMouseLeave={autoplay.current.reset}
+                styles={{
+                  indicator: {
+                    width: rem(10),
+                    height: rem(6),
+                    transition: "width 250ms ease",
+                    backgroundColor: "white !important",
+                    "&[data-active]": {
+                      width: rem(40),
+                    },
+                  },
+                }}
               >
                 {carousel_images.map((image) => (
                   <Carousel.Slide
@@ -99,7 +113,7 @@ export default function Home() {
                         placeholder="blur"
                         blurDataURL="/assets/images/hope_image.png"
                         alt="Pretty Little Thing"
-                        className="h-full w-full"
+                        className="h-full w-full object-cover"
                       />
                     </Link>
                   </Carousel.Slide>
