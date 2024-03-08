@@ -49,7 +49,7 @@ export function Navbar() {
               color="gray"
               variant="subtle"
               classNames={{
-                root: "text-white focus:text-gray-100",
+                root: "text-white hover:bg-black focus:text-gray-100 focus:bg-none",
               }}
             />
           </Link>
