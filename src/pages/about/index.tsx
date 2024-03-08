@@ -1,4 +1,4 @@
-import { Header, Paragraph } from "@/components/Texts";
+import { Header } from "@/components/Texts";
 import { Layout } from "@/components/layout";
 import { aboutDesignPhilosophy, aboutTools } from "@/utils/data";
 import Image from "next/image";

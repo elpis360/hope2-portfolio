@@ -1,5 +1,3 @@
-import { Header } from "@/components/Texts";
-import { Paragraph } from "@/components/Texts";
 import { Layout } from "@/components/layout";
 import React from "react";
 import { FaBehance, FaLinkedinIn, FaRegEnvelope } from "react-icons/fa";
