@@ -8,9 +8,9 @@ export function ProjectSection({ data }: { data: ProjectData }) {
         <div key={item.header}>
           <p className="h1-text font-medium mb-5 lg:mb-10">{item.header}</p>
           <div className="mb-5 lg:mb-10">
-            {item?.text?.map((text) => (
+            {item?.text?.map((text, index) => (
               <p
-                key={text.substring(0, 30)}
+                key={text + index}
                 className="p-text text-pri_text mb-2 lg:mb-3"
               >
                 {text}
@@ -66,8 +66,8 @@ export function ProjectSection({ data }: { data: ProjectData }) {
                   </p>
                 ))}
                 <ul className="grid gap-5 ">
-                  {sub?.list?.map((item) => (
-                    <li key={item.header} className="p-text list-disc ml-5">
+                  {sub?.list?.map((item, index) => (
+                    <li key={index} className="p-text list-disc ml-5">
                       <span className="font-bold">{item.header}</span>
                       {item.text}
                     </li>
@@ -115,8 +115,8 @@ export function ProjectSection({ data }: { data: ProjectData }) {
                       ))}
                     </div>
                     <ul className="grid gap-5 ">
-                      {image?.after_image?.list?.map((item) => (
-                        <li key={item.header} className="p-text list-disc ml-5">
+                      {image?.after_image?.list?.map((item, index) => (
+                        <li key={index} className="p-text list-disc ml-5">
                           <span className="font-bold">{item.header}</span>
                           {item.text}
                         </li>

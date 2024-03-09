@@ -2,7 +2,7 @@ import { Logo } from "@/components/logo";
 import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
-import { setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import { COOKIES } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
@@ -18,7 +18,6 @@ export default function LoginPage() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  const next = searchParams.get("next");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,15 +49,19 @@ export default function LoginPage() {
         });
       }
       if (res.ok) {
+        const next = searchParams.get("next");
         notify({
           message: "Successful Login",
           title: "Success",
           color: "green",
         });
         setCookie(COOKIES.auth, response?.token, COOKIES.options);
-        router.push({ query: next }, undefined, { shallow: true });
+
+        // router.reload();
+        // router.replace(next || "/");
+        router.push({ pathname: next ?? "/", query: { u: "true" } });
+        // router.replace(next ?? "/", undefined, { shallow: false });
       }
-      // router.replace(next || "/");
     } catch (e) {
       console.log(e);
     } finally {
