@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import { Logo } from "../logo";
 import { useRouter } from "next/router";
 import { useDisclosure } from "@mantine/hooks";
-import { Drawer, Button, Group, NavLink } from "@mantine/core";
+import { Drawer, NavLink } from "@mantine/core";
 
 import { MdOutlineMenu } from "react-icons/md";
 
@@ -64,9 +64,9 @@ export function Navbar() {
     >
       <div className=" bg-black   w-full lg:hidden  fixed h-[3.5rem]   top-0 left-0">
         <div className="justify-between flex items-center screen-center">
-          <div>
+          <Link href="/">
             <Logo width="30" />
-          </div>
+          </Link>
 
           <button aria-label="open drawer" onClick={open}>
             <MdOutlineMenu color="white" size={30} />
@@ -100,7 +100,9 @@ export function Navbar() {
       <div className="hidden lg:block fixed h-full  w-[15%] ">
         <div className="bg-black w-full">
           <div className="items-center flex justify-center my-10 mb-20 screen-center mx-auto">
-            <Logo />
+            <Link href="/">
+              <Logo width="30" />
+            </Link>
           </div>
           <div className="flex justify-center items-center">{drawer}</div>
         </div>
