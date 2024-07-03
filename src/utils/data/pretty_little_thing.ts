@@ -343,7 +343,7 @@ export const project_data: ProjectData = [
               "aspect-ratio: 16/9 h-[500px] object-cover w-[500px] mx-auto",
             after_image: {
               text: [
-                "TTo address the problem of excessive scrolling for certain users, I introduced the choice to display shop results in a '3 items per row' layout. This option enables users to see more items on their screen simultaneously.",
+                "To address the problem of excessive scrolling for certain users, I introduced the choice to display shop results in a '3 items per row' layout. This option enables users to see more items on their screen simultaneously.",
                 "Meanwhile, the '1 item per row' layout caters to users who prefer the convenience of getting a detailed look at each product without having to click on it first.",
               ],
             },
